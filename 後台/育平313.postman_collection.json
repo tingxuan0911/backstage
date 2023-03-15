@@ -1,0 +1,757 @@
+{
+	"info": {
+		"_postman_id": "e734a27c-7d1a-42e1-b035-eb041312c3ed",
+		"name": "育平",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24305436"
+	},
+	"item": [
+		{
+			"name": "註冊帳號",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "hoho2",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/signup",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登入帳號",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "account",
+							"value": "eeeeeeeeeedeee",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "00000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/login",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登出帳號",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Omm0BP5RLkvnr6RKhgcfIrJf0olnnb3qWfwBpX9L",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "192.168.66.17:81/logout",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改密碼",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "hoholin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "00000000",
+							"type": "text"
+						},
+						{
+							"key": "new_password_confirmation",
+							"value": "00000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/changepassword",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "送出問題回報",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "fhdfhdfh",
+							"description": "標題",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "fgfgfgfgggg",
+							"description": "問題說明",
+							"type": "text"
+						},
+						{
+							"key": "reporter",
+							"value": "test",
+							"description": "回報人",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "test",
+							"description": "問題處理部門",
+							"type": "text"
+						},
+						{
+							"key": "handler",
+							"value": "123",
+							"description": "問題處理人",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "test",
+							"description": "處理狀態0.未處理1.處理中2.處理完成",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "圖片路徑",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "remark",
+							"value": "5264",
+							"description": "備註",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/report",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "針對ID取得問題回報",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/report/9",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"report",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除問題回報",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/report/9",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"report",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得所有問題回報",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "192.168.66.17:81/showreport?page=1&value=123&starttime=&endtime=&state=",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"showreport"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "value",
+							"value": "123"
+						},
+						{
+							"key": "starttime",
+							"value": ""
+						},
+						{
+							"key": "endtime",
+							"value": ""
+						},
+						{
+							"key": "state",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯問題回報",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "FSDFERSDGGGGG",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "d2",
+							"type": "text"
+						},
+						{
+							"key": "reporter",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "handler",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "remark",
+							"value": "12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/report_update",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"report_update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增使用者",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "TTTTEESSSTTTsss1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hoho_lin@shenbingtech.com",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "0",
+							"description": "0.客服 1.研發 2.資訊",
+							"type": "text"
+						},
+						{
+							"key": "job_title",
+							"value": "1",
+							"description": "0.客服專員 1.前端工程師 2.後端工程屍 3.資訊工程師 4.維運工程師",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/adduser",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除使用者",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/deleteuser/26",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"deleteuser",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得所有使用者",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/showuser?page=1&name=林先生&department=0&job_title=1",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"showuser"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "name",
+							"value": "林先生"
+						},
+						{
+							"key": "department",
+							"value": "0"
+						},
+						{
+							"key": "job_title",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "針對ID取得使用者資料",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/finduser/81",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"finduser",
+						"81"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "發email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hoho_lin@shenbingtech.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/emailtest",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"emailtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯使用者",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "林先生",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hoho_lin@shenbingtech.com",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "1",
+							"description": "0.客服 1.研發 2.資訊",
+							"type": "text"
+						},
+						{
+							"key": "job_title",
+							"value": "0",
+							"description": "0.客服專員 1.前端工程師 2.後端工程師 3.資訊工程師",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/edituser",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"edituser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "忘記密碼",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hoho_lin@shenbingtech.com",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "k6JE1tf",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "new_password_confirmation",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.66.17:81/forgetpassword",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"forgetpassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "針對ID取得操作紀錄",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/record/2",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"record",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得所有操作紀錄",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.66.17:81/showrecord?page=1&account&starttime&endtime",
+					"host": [
+						"192",
+						"168",
+						"66",
+						"17"
+					],
+					"port": "81",
+					"path": [
+						"showrecord"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "account",
+							"value": null
+						},
+						{
+							"key": "starttime",
+							"value": null
+						},
+						{
+							"key": "endtime",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查詢軟刪除(先不用)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

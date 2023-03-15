@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>後臺管理 </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- api css -->
+    <link rel="stylesheet" href="./api表格/表格/css/zzsc.css">
+    <link rel="stylesheet" type="text/css" href="./api表格/表格/css/simplePagination.css" />
+    <!-- Favicon-->
+    <!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Main Navbar-->
+        <header class="header">
+            <nav class="navbar">
+                <!-- Search Box-->
+                <div class="search-box">
+                    <button class="dismiss"><i class="icon-close"></i></button>
+                    <form id="searchForm" action="#" role="search">
+                        <input type="search" placeholder="What are you looking for..." class="form-control">
+                    </form>
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <!-- Navbar Header-->
+                        <div class="navbar-header">
+                            <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                                <div class="brand-text d-none d-lg-inline-block"><span>GSG全球綜合商城
+                                    </span><strong>問題登記後臺系統</strong></div>
+                                <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong></strong></div>
+                            </a>
+                            <!-- Toggle Button--><a id="toggle-btn" href="#"
+                                class="menu-btn active"><span></span><span></span><span></span></a>
+                        </div>
+                        <!-- Navbar Menu -->
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                            <!-- 修改密碼-->
+                            <li class="nav-item d-flex align-items-center"><a href="./change-password.html"
+                                    style="font-size: 15px;">修改密碼</a>
+                                <!-- Logout-->
+                            <li class="nav-item"><a href="login.html" class="nav-link logout"> <span
+                                        class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <nav class="side-navbar">
+                <!-- Sidebar Header-->
+                <div class="sidebar-header d-flex align-items-center">
+                    <div class="avatar" style="margin-right: -10px;"><img
+                            src="/img/photos/paul-morris-116514-unsplash.jpg" alt="..."
+                            class="img-fluid rounded-circle"></div>
+                    <div class="title">
+                        <h1 class="h4 userTitle text-center"></h1>
+                        <p>Web Designer</p>
+                    </div>
+                </div>
+                <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+                <ul class="list-unstyled">
+                    <li class="active"><a href="index.html"
+                            style="background-color: unset;color: #686a76;border-left: 4px solid white;"> <i
+                                class="icon-home"></i>Home </a></li>
+                    <!-- <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li> -->
+                    <!-- <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li> -->
+                    <!-- <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li> -->
+                    <!-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
+                      <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                      </ul>
+                    </li> -->
+                    <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
+                    <li><a href="join-member.html"><i class="icon-interface-windows"></i>Join new members</a></li>
+                    <li><a href="operation-record.html"
+                            style="background-color:#796AEE;color: white;border-left: 4px solid #3b25e6;">
+                            <i class="icon-interface-windows"></i>Operation record</a></li>
+                    <!-- <li><a href="tables2.html"> <i class="icon-grid"></i>Tables 2 </a></li> -->
+                    <!-- </ul>
+          <span class="heading">Extras</span>
+        <ul class="list-unstyled">
+          <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+        </ul> -->
+
+
+                    <!-- 操作紀錄視窗  -->
+                    <!-- <button id="show">show</button>
+                    <dialog id="infoModal">
+                        <p>這是 html 的 dialog!!</p>
+                        <button id="close">close</button>
+                    </dialog> -->
+
+
+            </nav>
+            <div class="content-inner">
+                <!-- Page Header-->
+                <header class="page-header">
+                    <div class="container-fluid d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h2 class="no-margin-bottom" style="width: 90px;">操作紀錄</h2>
+                            <!-- <a href="./add-user.html" class="btn btn-success ml-3" role="button"
+                                data-bs-toggle="button">新增</a> -->
+                        </div>
+                        <!-- 搜尋列 -->
+                        <div class="wrap">
+                            <div class="search">
+                                <input class="search-bar" type="text" name="searchtext" id="searchname"
+                                    placeholder="用戶名">
+                                <input class="search-bar" type="date" name="starttime" id="starttime"
+                                    placeholder="開始時間">
+                                <input style="margin-right: 40px;" class="search-bar" type="date" name="endtime"
+                                    id="endtime" placeholder="結束時間">
+                                <button class="search-btn">
+
+                                    <!-- <input class="search-bar" type="date" name="starttime" id="starttime" placeholder="開始時間">
+                <input class="search-bar" type="date" name="endtime" id="endtime" placeholder="結束時間"> -->
+                                    <button class="search-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                            <path
+                                                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+                                            -->
+                                        </svg>
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- 表格 -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">姓名</th>
+                            <th scope="col">登入IP</th>
+                            <th scope="col">事件</th>
+                            <th scope="col">更新時間</th>
+                            <!-- <th scope="col">狀態</th> -->
+                            <th scope="col">詳細內容</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data2">
+                    </tbody>
+                </table>
+
+                <div class="pagination-holder clearfix">
+                    <div id="compact-pagination1"></div>
+                </div>
+
+
+                <!-- Page Footer-->
+                <footer class="main-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>GSG全球綜合商城 &copy; 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <!-- 表格 -->
+    <script src="./api表格/表格/js/jquery.simplePagination.js"></script>
+    <script>
+
+        // cookie name
+        var x = document.cookie;
+        console.log(x)
+        function parseCookie() {
+            var cookieObj = {};
+            var cookieAry = document.cookie.split(';');
+            var cookie;
+            for (var i = 0, l = cookieAry.length; i < l; ++i) {
+                cookie = jQuery.trim(cookieAry[i]);
+                cookie = cookie.split('=');
+                cookieObj[cookie[0]] = cookie[1];
+            }
+            return cookieObj;
+        }
+        function getCookieByName(name) {
+            var value = parseCookie()[name];
+            if (value) {
+                value = decodeURIComponent(value);
+            }
+            return value;
+        }
+        var aa = getCookieByName('username')
+        var userTitle = document.querySelector('.userTitle')
+        userTitle.innerHTML = `${aa}`
+        // console.log('111')
+
+        var bb = getCookieByName('page')
+        console.log(1)
+        console.log(bb)
+        // if (bb = '') {
+        //   getAjaxData1(1);
+        // } else {
+        //   getAjaxData1(bb);
+        // }
+
+
+        // token
+        var cc = getCookieByName('token')
+        console.log(cc)
+
+        // 沒cookie無法登入
+        if (aa == undefined) {
+            console.log(aa)
+            location.href = `./login.html`
+            // alert('請先登入')
+        }
+
+
+        // 表格顯示
+        var searchBtn = document.querySelector('.search-btn')
+        var searchname = document.querySelector('#searchname')
+        var starttime = document.querySelector('#starttime')
+        var endtime = document.querySelector('#endtime')
+
+        getAjaxData1(1);
+        getAjaxData1(bb);
+
+        function changePage1(page_index, event) {
+            console.log(page_index);
+            getAjaxData(page_index);
+        }
+
+        function getAjaxData1(page) {
+            var urlSearch = `http://192.168.66.17:81/showrecord?page=${page}&account=${searchname.value}&starttime=${starttime.value}&endtime=${endtime.value}&token=${cc}`
+            console.log(urlSearch)
+
+            fetch(urlSearch)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (res) {
+                    console.log(res);
+                    if (res.msg) {
+                        alert(res.msg);
+                    } else {
+
+                        // cookie to 頁數
+                        document.cookie = `page=${page}`;
+                        console.log(document.cookie);
+
+
+                        var html = '';
+                        // 頁籤
+                        var total_page = res.totalpage;
+                        $('#compact-pagination1').pagination({
+                            pages: total_page,
+                            cssStyle: 'compact-theme',
+                            currentPage: page,
+                            onPageClick: changePage2
+                        });
+
+                        for (var i = 0; i < res.data.length; i++) {
+
+                            var action = ''
+                            if (res.data[i].action == 0) {
+                                action = "新增問題回報"
+                            } else if (res.data[i].action == 1) {
+                                action = "修改問題回報"
+                            } else if (res.data[i].action == 2) {
+                                action = "刪除問題回報"
+                            } else if (res.data[i].action == 3) {
+                                action = "新增使用者資料"
+                            } else if (res.data[i].action == 4) {
+                                action = "修改使用者資料"
+                            } else if (res.data[i].action == 5) {
+                                action = "刪除使用者資料"
+                            }
+
+                            // 判別問題回報或使用者資訊
+                            // 問題回報
+                            if (res.data[i].action == 0 || res.data[i].action == 1 || res.data[i].action == 2) {
+                                console.log('123456')
+                                var beforevar = ""
+                                if (res.data[i].before == "") {
+                                    beforevar = `<p>沒有資料</p>`
+                                } else {
+                                    var resBefore = JSON.parse(res.data[i].before)
+                                    console.log(resBefore)
+
+                                    var statevar = ''
+                                    if (resBefore.state == 0) {
+                                        statevar = "未處理"
+                                    } else if (resBefore.state == 1) {
+                                        statevar = "處理中"
+                                    } else if (resBefore.state == 2) {
+                                        statevar = "處理完成"
+                                    }
+
+                                    beforevar = `<p>標題 : ${resBefore.title}</p>
+                                             <p>問題說明 : ${resBefore.content}</p>
+                                             <p>回報人 : ${resBefore.reporter}</p>
+                                             <p>問題處理部門 : ${resBefore.department}</p>
+                                             <p>問題處理人 : ${resBefore.handler}</p>
+                                             <p>處理狀態 : ${statevar}</p>
+                                             <p>上傳圖片 : ${resBefore.image}</p>
+                                             <p>備註 : ${resBefore.remark}</p>`
+                                }
+
+                                // 使用者after字串變json
+                                var aftervar = ""
+                                if (res.data[i].after == "") {
+                                    aftervar = `<p>沒有資料</p>`
+                                } else {
+                                    var resafter = JSON.parse(res.data[i].after)
+                                    console.log(resafter)
+
+                                    var statevar = ''
+                                    if (resafter.state == 0) {
+                                        statevar = "未處理"
+                                    } else if (resafter.state == 1) {
+                                        statevar = "處理中"
+                                    } else if (resafter.state == 2) {
+                                        statevar = "處理完成"
+                                    }
+                                    aftervar = `<p>標題 : ${resafter.title}</p>
+                                             <p>問題說明 : ${resafter.content}</p>
+                                             <p>回報人 : ${resafter.reporter}</p>
+                                             <p>問題處理部門 : ${resafter.department}</p>
+                                             <p>問題處理人 : ${resafter.handler}</p>
+                                             <p>處理狀態 : ${statevar}</p>
+                                             <p>上傳圖片 : ${resafter.image}</p>
+                                             <p>備註 : ${resafter.remark}</p>`
+                                }
+
+                                // 使用者資訊
+                            } else if (res.data[i].action == 3 || res.data[i].action == 4 || res.data[i].action == 5) {
+                                // 使用者before字串變json
+                                var beforevar = ""
+                                if (res.data[i].before == "") {
+                                    beforevar = `<p>沒有資料</p>`
+                                } else {
+                                    var resBefore = JSON.parse(res.data[i].before)
+                                    console.log(resBefore)
+
+                                    var departmentcols = ''
+                                    if (resBefore.department == 0) {
+                                        departmentcols = "客服"
+                                    } else if (resBefore.department == 1) {
+                                        departmentcols = "研發"
+                                    } else if (resBefore.department == 2) {
+                                        departmentcols = "資訊"
+                                    }
+
+                                    var jobcols = ''
+                                    if (resBefore.job_title == 0) {
+                                        jobcols = "客服專員"
+                                    } else if (resBefore.job_title == 1) {
+                                        jobcols = "前端工程師"
+                                    } else if (resBefore.job_title == 2) {
+                                        jobcols = "後端工程師"
+                                    } else if (resBefore.job_title == 3) {
+                                        jobcols = "資訊工程師"
+                                    }
+                                    beforevar = `<p>帳號 : ${resBefore.account}</p>
+                                             <p>姓名 : ${resBefore.name}</p>
+                                             <p>IP : ${resBefore.email}</p>
+                                             <p>部門 : ${departmentcols}</p>
+                                             <p>職稱 : ${jobcols}</p>`
+                                }
+
+                                // 使用者after字串變json
+                                var aftervar = ""
+                                if (res.data[i].after == "") {
+                                    aftervar = `<p>沒有資料</p>`
+                                } else {
+                                    var resafter = JSON.parse(res.data[i].after)
+                                    console.log(resafter)
+
+                                    var departmentcols = ''
+                                    if (resafter.department == 0) {
+                                        departmentcols = "客服"
+                                    } else if (resafter.department == 1) {
+                                        departmentcols = "研發"
+                                    } else if (resafter.department == 2) {
+                                        departmentcols = "資訊"
+                                    }
+
+                                    var jobcols = ''
+                                    if (resafter.job_title == 0) {
+                                        jobcols = "客服專員"
+                                    } else if (resafter.job_title == 1) {
+                                        jobcols = "前端工程師"
+                                    } else if (resafter.job_title == 2) {
+                                        jobcols = "後端工程師"
+                                    } else if (resafter.job_title == 3) {
+                                        jobcols = "資訊工程師"
+                                    }
+                                    aftervar = `<p>帳號 : ${resafter.account}</p>
+                                             <p>姓名 : ${resafter.name}</p>
+                                             <p>IP : ${resafter.email}</p>
+                                             <p>部門 : ${departmentcols}</p>
+                                             <p>職稱 : ${jobcols}</p>`
+                                }
+
+                            }
+
+                            html += `<tr>
+                                <td scope="row">${res.data[i].account}</th>
+                                    <td class="departmentcol">${res.data[i].ip}</td>
+                                    <td class="jobcol">${action}</td>
+                                    <td >${res.data[i].created_at}</td>
+                                    <td>
+                                        <input id="show" class="show" type="button" value="詳細內容" style="background-color:green;color: white; border: unset;font-size: 16px; border-radius: 5px;padding: 3px 8px;cursor: pointer;">
+                                        <dialog id="infoModal" class="infoModal">
+                                            <div style="padding:20px 50px;">
+                                                <div style="border-bottom: 1px solid #000;margin-bottom: 20px;">
+                                                    <h2>詳細內容</h2>
+                                                </div>
+
+                                                <div style="display: flex;">
+                                                    <div style="width:300px">
+                                                        <h5>變更前</h5>
+                                                        <div class="beforeBox" style="word-wrap:break-word;">
+                                                            ${beforevar}
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="width:300px">
+                                                        <h5>變更後</h5>
+                                                        <div class="afterBox" style="word-wrap:break-word;">
+                                                            ${aftervar}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                                  
+                                            </div>
+                                            <button id="close" class="close" style="background-color: gray;color:white;margin:0px 50px;">close</button>
+                                        </dialog>
+                                    </tr>`;
+
+                        }
+                        $('#data2').html(html);
+
+
+                        // 操作紀錄視窗
+                        var shows = document.querySelectorAll(".show");
+                        var infoModals = document.querySelectorAll(".infoModal");
+                        var closes = document.querySelectorAll(".close");
+
+                        var beforeBox = document.querySelectorAll(".beforeBox")
+                        var afterBox = document.querySelectorAll(".afterBox")
+
+                        for (let i = 0; i < shows.length; i++) {
+
+                            shows[i].onclick = function () {
+                                console.log("222")
+                                infoModals[i].showModal();
+                            }
+                            closes[i].onclick = function () {
+                                infoModals[i].close();
+                            }
+                        }
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err)
+                });
+        }
+
+
+        // 頁籤
+        function changePage2(page_index, event) {
+            console.log(page_index);
+            getAjaxData1(page_index);
+        }
+        searchBtn.onclick = function () {
+            getAjaxData1(1)
+            console.log("55")
+        }
+
+
+        // logout cookie delete
+        var logout = document.querySelector('.logout')
+        logout.onclick = function () {
+            document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            document.cookie = 'page=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+
+
+    </script>
+</body>
+
+</html>
